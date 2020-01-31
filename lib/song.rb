@@ -31,6 +31,7 @@
   end
   attr_accessor :name, :artist, :genre
 end
+end
 
 the_day = Song.new("The Day", "John Smith", "classic")
 tomorow = Song.new("Tomorow", "John Smith", "classic")
@@ -46,6 +47,3 @@ Song.genres
 Song.artists
 Song.genre_count
 Song.artist_count
-
-
-end
