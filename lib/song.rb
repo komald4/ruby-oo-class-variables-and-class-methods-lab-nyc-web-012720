@@ -1,4 +1,4 @@
-
+  attr_accessor :name, :artist, :genre
   def self.genre_count
     genre_count = {}
     @@genres.each do |genre|
@@ -29,7 +29,7 @@
     @@genres << genre
     @@count += 1
   end
-  attr_accessor :name, :artist, :genre
+
 
 
 the_day = Song.new("The Day", "John Smith", "classic")
