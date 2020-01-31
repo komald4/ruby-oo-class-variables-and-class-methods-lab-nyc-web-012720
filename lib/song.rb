@@ -1,48 +1,63 @@
-  attr_accessor :name, :artist, :genre
-  def self.genre_count
-    genre_count = {}
-    @@genres.each do |genre|
-      if genre_count[genre]
-        genre_count[genre] += 1
-      else
-        genre_count[genre] = 1
-      end
-    end
-    genre_count
-  end
 
+class Song
+
+  attr_accessor :name, :artist, :genre
+
+  @@song_count = 0
+  @@genres = []
   @@artists = []
 
-  def self.artist_count
-    @@artists.inject(Hash.new(0)) { |total, i| total[i] += 1 ;total}
+  def initialize(name, artist, genre)
+    @name = name
+    @artist = artist
+    @genre = genre
+    @@genres << @genre
+    @@artists << @artist
+    @@song_count +=1
+  end
+
+  def self.count
+    @@song_count
+  end
+
+  def self.genres
+    @@genres.uniq
   end
 
   def self.artists
     @@artists.uniq
   end
 
-  def initialize(name, artist, genre)
-    @name = name
-    @artist = artist
-    @@artists << artist
-    @genre = genre
-    @@genres << genre
-    @@count += 1
+  def self.genre_count
+    genre_count = {}
+    @@genres.each do |genre|
+      if genre_count[genre]
+      genre_count[genre] += 1
+      else
+      genre_count[genre] = 1
+      end
+    end
+    genre_count
   end
 
+  def self.artist_count
+    artist_count = {}
+    @@artists.each do |artist|
+      if artist_count[artist]
+      artist_count[artist] +=1
+      else
+      artist_count[artist] = 1
+      end
+    end
+    artist_count
+  end
 
+end
 
-the_day = Song.new("The Day", "John Smith", "classic")
-tomorow = Song.new("Tomorow", "John Smith", "classic")
-a_yearz = Song.new("A Yearz", "Adam Johns", "oldtime")
-a_rabess = Song.new("Arabess", "Habibi Watan", "Rai")
-cus_umak = Song.new("Cus Ummach", "Haifa Wehbe", "Rai")
-
-puts the_day.name
-puts the_day.artist
-puts the_day.genre
-puts Song.count
+ninety_nine_problems = Song.new("99 Problems", "Jay-Z", "Rap")
+mask_off = Song.new("Mask Off", "Future", "Rap")
+dance_macabre = Song.new("Dance Macabre", "Ghost", "Metal")
+if_you_have_ghosts = Song.new("If You Have Ghosts", "Ghost", "Metal")
 Song.genres
-Song.artists
-Song.genre_count
-Song.artist_count
+p Song.artist_count
+p Song.genre_count
