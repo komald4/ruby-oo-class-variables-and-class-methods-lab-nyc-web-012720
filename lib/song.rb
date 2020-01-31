@@ -1,4 +1,4 @@
-
+require_relative "../lib/song.rb"
   def self.genre_count
     genre_count = {}
     @@genres.each do |genre|
