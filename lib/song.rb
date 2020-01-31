@@ -1,4 +1,4 @@
-require_relative "../lib/song.rb"
+
   def self.genre_count
     genre_count = {}
     @@genres.each do |genre|
@@ -46,3 +46,6 @@ Song.genres
 Song.artists
 Song.genre_count
 Song.artist_count
+
+
+end
